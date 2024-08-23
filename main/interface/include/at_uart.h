@@ -27,7 +27,7 @@
  *******************************************************/
 #define AT_UART_BAUD_RATE_MAX                       SOC_UART_BITRATE_MAX    /**< maximum uart baud rate */
 #define AT_UART_BAUD_RATE_MIN                       80                      /**< minimum uart baud rate */
-#define AT_UART_BAUD_RATE_DEF                       115200                  /**< default uart baud rate */
+#define AT_UART_BAUD_RATE_DEF                       460800//115200                  /**< default uart baud rate */
 #define AT_UART_PATTERN_TIMEOUT_MS                  20                      /**< uart pattern timeout */
 
 #define AT_UART_PARITY_NONE                         UART_PARITY_DISABLE     /**< uart parity disable */
@@ -35,11 +35,11 @@
 #define AT_UART_PARITY_ODD                          UART_PARITY_ODD         /**< uart parity odd */
 
 #if defined(CONFIG_IDF_TARGET_ESP32C2)
-#define AT_UART_RX_BUFFER_SIZE                      1024                    /**< uart rx buffer size */
-#define AT_UART_TX_BUFFER_SIZE                      2048                    /**< uart tx buffer size */
+#define AT_UART_RX_BUFFER_SIZE                      8192//1024                    /**< uart rx buffer size */
+#define AT_UART_TX_BUFFER_SIZE                      8192//2048                    /**< uart tx buffer size */
 #define AT_UART_QUEUE_SIZE                          15                      /**< uart queue size */
 #else
-#define AT_UART_RX_BUFFER_SIZE                      2048                    /**< uart rx buffer size */
+#define AT_UART_RX_BUFFER_SIZE                      8192//2048                    /**< uart rx buffer size */
 #define AT_UART_TX_BUFFER_SIZE                      8192                    /**< uart tx buffer size */
 #define AT_UART_QUEUE_SIZE                          30                      /**< uart queue size */
 #endif
