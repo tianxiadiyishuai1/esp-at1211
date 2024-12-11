@@ -26,6 +26,7 @@ const char *g_at_mfg_nvs_name = "mfg_nvs";
 
 // static variables
 static const char *s_ready_str = "\r\nready\r\n";
+static const char *s_start_str = "\r\n串口波特率460800 8位数据位1位停止位无校验位\r\nsuccess\r\n";
 static at_mfg_params_storage_mode_t s_at_param_mode = AT_PARAMS_NONE;
 static const char *TAG = "at-init";
 
@@ -296,6 +297,7 @@ static void at_nvs_flash_init_partition(void)
 static void esp_at_ready(void)
 {
     esp_at_port_active_write_data((uint8_t *)s_ready_str, strlen(s_ready_str));
+    esp_at_port_active_write_data((uint8_t *)s_start_str, strlen(s_start_str));
 }
 
 void esp_at_init(void)
